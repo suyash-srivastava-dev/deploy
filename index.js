@@ -8,6 +8,7 @@ const instagram = {
     initialize: async () => {
         instagram.browser = await puppeteer.launch({
             headless: true,
+            executablePath: '/usr/bin/chromium-browser',
             args: ['--no-sandbox'],
         });
         instagram.page = await instagram.browser.newPage();
@@ -19,9 +20,8 @@ const instagram = {
         await instagram.page.waitForTimeout(1000);
 
         // Fetch the script
-        const infoJson = await instagram.page.$eval(
-            "video",
-            (txt) => txt.textContent
+        const infoJson = await instagram.page.evaluate(
+            () => document.querySelector("video").textContent
         );
         console.log(infoJson);
         // const json = '{"result":true, "count":42}';
