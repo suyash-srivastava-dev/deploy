@@ -18,11 +18,13 @@ const instagram = {
     video: async (url) => {
         await instagram.page.goto(url, { waitUntil: "networkidle2" });
         await instagram.page.waitForTimeout(1000);
+        console.log('page loaded');
 
         // Fetch the script
         const infoJson = await instagram.page.evaluate(
             () => document.querySelector("video").textContent
         );
+        
         console.log(infoJson);
         // const json = '{"result":true, "count":42}';
 
