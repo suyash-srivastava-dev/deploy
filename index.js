@@ -21,10 +21,11 @@ const instagram = {
         console.log('page loaded');
 
         // Fetch the script
-        const infoJson = await instagram.page.evaluate(
-            () => document.querySelector("video").textContent
+        const infoJson = await instagram.page.$eval(
+            "video",
+            (txt) => txt.getAttribute("src")
         );
-        
+
         console.log(infoJson);
         // const json = '{"result":true, "count":42}';
 
