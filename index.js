@@ -8,7 +8,7 @@ const instagram = {
     initialize: async () => {
         instagram.browser = await puppeteer.launch({
             headless: true,
-            args: [`--window-size=1920,1080`],
+            args: ['--no-sandbox'],
         });
         instagram.page = await instagram.browser.newPage();
         // await instagram.page.emulate(iPhone);
