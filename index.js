@@ -33,9 +33,5 @@ const instagram = {
       },
 
 }
-    (async () => {
-        await instagram.initialize();
-        await instagram.video('https://www.tiktok.com/@diva__flawless/video/7236132098770308357');
-        await instagram.closeBrowser();
-    })();
+
 module.exports = instagram;
